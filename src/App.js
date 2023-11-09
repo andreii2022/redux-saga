@@ -1,17 +1,25 @@
-import './App.css';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { increaceCount, decreaceCount } from './redux/ections/ectionCreation';
+import { useDispatch } from 'react-redux';
 
-function App() {
+const App = () => {
+  const count = useSelector((store) => store?.counter?.count);
+  const dispatch = useDispatch();
+
+  const handleIncrease = () => {
+    dispatch(increaceCount());
+  };
+  const handleDecrease = () => {
+    dispatch(decreaceCount());
+  };
+
   return (
-    <div className="container pt-3">
-      <div className="row">
-        <div className="col">FORM</div>
-      </div>
-      <div className="row">
-        <div className="col">POSTS</div>
-        <div className="col">FETCED</div>
-      </div>
+    <div>
+      <button onClick={handleIncrease}>+1</button>
+      <button onClick={handleDecrease}>-1</button>
+      <h1>{count}</h1>
     </div>
   );
-}
+};
 
 export default App;
