@@ -22,17 +22,16 @@
 // Тут мы создаём глобальное хранилище данных всего приложения
 
 // Импортируем из редакс два метода
-import { createStor, compose } from 'react-redux';
 
-const composeEnhancers =
+import { createStore, compose } from 'redux';
+import reducer from './reducers/index';
+
+const composeEnxancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__({})
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const configureStore = (preladeState) => {
-  createStor(reducer, preladeState, composeEnxancers());
-
-  const store = configureStore({});
-};
+const configureStore = (preloadedState) => createStore(reducer, preloadedState, composeEnxancers());
+const store = configureStore({});
 
 export default store;

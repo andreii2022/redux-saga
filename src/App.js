@@ -1,4 +1,4 @@
-// import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 // import { increaceCount, decreaceCount } from './redux/ections/ectionCreation';
 // import { useDispatch } from 'react-redux';
 
@@ -25,7 +25,13 @@
 // export default App;
 
 const App = () => {
-  return;
+  const store = useSelector((store) => store);
+  console.log(store);
+  return (
+    <div>
+      <h1>rrrrrrrrrrr</h1>
+    </div>
+  );
 };
 
 export default App;
