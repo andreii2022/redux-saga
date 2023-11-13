@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+// import { useSelector } from 'react-redux/es/hooks/useSelector';
 // import { increaceCount, decreaceCount } from './redux/ections/ectionCreation';
 // import { useDispatch } from 'react-redux';
 
@@ -24,12 +24,25 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 // export default App;
 
+import { useState } from 'react';
+
 const App = () => {
-  const store = useSelector((store) => store);
-  console.log(store);
+  const [count, setCount] = useState(0);
+
+  const handleIncrease = () => {
+    setCount(count + 1);
+  };
+  const handleDecrease = () => {
+    setCount(count - 1);
+  };
+
+  // const store = useSelector((store) => store);
+  // console.log(store);
   return (
     <div>
-      <h1>rrrrrrrrrrr</h1>
+      <button onClick={handleIncrease}>+1</button>
+      <button onClick={handleDecrease}>-1</button>
+      <h1>{count}</h1>
     </div>
   );
 };
