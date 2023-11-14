@@ -23,6 +23,23 @@
 
 // Импортируем из редакс два метода
 
+//----------------------------------
+
+// import { createStore, compose } from 'redux';
+// import reducer from './reducers/index';
+
+// const composeEnxancers =
+//   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+//     : compose;
+
+// const configureStore = (preloadedState) => createStore(reducer, preloadedState, composeEnxancers());
+// const store = configureStore({});
+
+// export default store;
+
+//---------------------------------------------
+
 import { createStore, compose } from 'redux';
 import reducer from './reducers/index';
 
@@ -31,7 +48,8 @@ const composeEnxancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const configureStore = (preloadedState) => createStore(reducer, preloadedState, composeEnxancers());
+const configureStore = (preoladeState) => createStore(reducer, preoladeState, composeEnxancers());
+
 const store = configureStore({});
 
 export default store;
