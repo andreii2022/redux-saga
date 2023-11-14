@@ -22,9 +22,9 @@
 
 import { INCREACE_COUNT, DECREACE_COUNT } from '../constans';
 
-const increaceCount = () => ({
+export const increaceCount = () => ({
   type: INCREACE_COUNT,
 });
-const decreaceCount = () => ({
+export const decreaceCount = () => ({
   type: DECREACE_COUNT,
 });
