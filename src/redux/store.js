@@ -43,6 +43,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers/index';
+import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -55,5 +56,7 @@ const configureStore = (preoladeState) =>
   createStore(reducer, preoladeState, composeEnxancers(applyMiddleware(sagaMiddleware)));
 
 const store = configureStore({});
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
