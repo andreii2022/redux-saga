@@ -4,7 +4,7 @@ import { increaceCount, decreaceCount } from './redux/ections/ectionCreation';
 import { useDispatch } from 'react-redux';
 
 const App = () => {
-  const count = useSelector((store) => store?.counter?.count);
+  const count = useSelector((store) => store?.counter?.count || 0);
   const dispatch = useDispatch();
 
   const handleIncrease = () => {

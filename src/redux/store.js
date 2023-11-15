@@ -40,15 +40,19 @@
 
 //---------------------------------------------
 
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers/index';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const composeEnxancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const configureStore = (preoladeState) => createStore(reducer, preoladeState, composeEnxancers());
+const configureStore = (preoladeState) =>
+  createStore(reducer, preoladeState, composeEnxancers(applyMiddleware(sagaMiddleware)));
 
 const store = configureStore({});
 
