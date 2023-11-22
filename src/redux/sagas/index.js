@@ -3,16 +3,17 @@
 //   yield;
 // }
 
-import { take } from '@redux-saga/core/effects';
-import { INCREACE_COUNT, DECREACE_COUNT } from '../constans';
+import { takeEvery, put } from '@redux-saga/core/effects';
+import { getLatestNews } from '../../api/insex';
+import { GET_LATEST_NEWS } from '../../redux/constans';
+import { settLatestNews } from '../ections/ectionCreation';
 
-export function* workerSaga() {}
-
+export function* workerSaga() {
+  const { hits } = yield getLatestNews();
+  yield put(settLatestNews(hits));
+}
 export function* watchClickSaga() {
-  yield take(INCREACE_COUNT);
-  console.log('request 1');
-  yield take(DECREACE_COUNT);
-  console.log('request 2');
+  yield takeEvery(GET_LATEST_NEWS, workerSaga);
 }
 
 export default function* rootSaga() {

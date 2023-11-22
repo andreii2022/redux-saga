@@ -1,22 +1,25 @@
-import { useSelector } from 'react-redux';
-import { increaceCount, decreaceCount } from './redux/ections/ectionCreation';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { increaseCount, decreaseCount, getLatestNews } from './redux/ections/ectionCreation';
 
 const App = () => {
   const count = useSelector((store) => store?.counter?.count || 0);
   const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    dispatch(increaceCount());
+    dispatch(increaseCount());
   };
   const handleDecrease = () => {
-    dispatch(decreaceCount());
+    dispatch(decreaseCount());
+  };
+  const handleNews = () => {
+    dispatch(getLatestNews());
   };
 
   return (
     <div>
       <button onClick={handleIncrease}>+1</button>
       <button onClick={handleDecrease}>-1</button>
+      <button onClick={handleNews}>Get News</button>
       <h1>{count}</h1>
     </div>
   );
