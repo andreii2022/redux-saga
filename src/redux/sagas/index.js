@@ -4,9 +4,13 @@ import { setLatestNews, setPopularNews } from '../ections/ectionCreation';
 import { getLatestNews, getPopularNews } from '../../api/index';
 
 export function* handleLatestNews() {
-  throw new Error();
-  // const { hits } = yield call(getLatestNews, 'react');
-  // yield put(setLatestNews(hits));
+  try {
+    throw new Error();
+    const { hits } = yield call(getLatestNews, 'react');
+    yield put(setLatestNews(hits));
+  } catch {
+    throw new Error('Error fetching latest news');
+  }
 }
 
 export function* handlePopularNews() {
