@@ -19,18 +19,18 @@
 // });
 
 //---------------------------------------------
-import { INCRESE_COUNT, DECRESE_COUNT, GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constans';
+import { SET_LATEST_NEWS, SET_POPULAR_NEWS, GET_NEWS } from '../constans';
 
-export const increaseCount = () => ({
-  type: INCRESE_COUNT,
-});
-export const decreaseCount = () => ({
-  type: DECRESE_COUNT,
-});
-export const getLatestNews = () => ({
-  type: GET_LATEST_NEWS,
-});
-export const settLatestNews = (payload) => ({
+export const setLatestNews = (payload) => ({
   type: SET_LATEST_NEWS,
   payload,
+});
+
+export const setPopularNews = (payload) => ({
+  type: SET_POPULAR_NEWS,
+  payload,
+});
+
+export const getNews = () => ({
+  type: GET_NEWS,
 });

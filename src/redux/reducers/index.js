@@ -1,31 +1,11 @@
-// import { combineReducers } from 'redux';
-// import counter from './counter';
-
-// const reducer = combineReducers({
-//   counter,
-// });
-
-// export default reducer;
-
-//------------------------------------------------
-
-// import { combineReducers } from 'redux'; // объеденяет несколько функций в одну  для разделения логики обработки действий
-// import counter from './counter';
-
-// const reducer = combineReducers({
-//   counter,
-// });
-
-// export default reducer;
-//-------------------------------------------------------------------------
-
 import { combineReducers } from 'redux';
 import counter from './counter';
 import news from './news';
+import errors from './errors';
 
 const reducers = combineReducers({
-  counter,
   news,
+  errors,
 });
 
 export default reducers;
