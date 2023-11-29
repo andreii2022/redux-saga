@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router';
+import { Router, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import Home from './';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
